@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة الذهب المتقدمة</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#FFD700">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+<h1>حاسبة أسعار الذهب المتقدمة</h1>
+
+
+<div class="inputs">
+<label>
+اختر البلد:
+<select id="country">
+<option value="SEK">السويد (كرونا)</option>
+<option value="IQD">العراق (دينار)</option>
+</select>
+</label>
+
+
+<label>
+أدخل الوزن (غرام):
+<input type="number" id="weight" placeholder="مثلاً 10">
+</label>
+
+
+<button id="calculateBtn">احسب الأسعار اليوم</button>
+</div>
+
+
+<div class="results" id="results"></div>
+
+
+<h2>تغير سعر الذهب خلال آخر 7 أيام</h2>
+<canvas id="goldChart" width="400" height="200"></canvas>
+</div>
+
+
+<script src="script.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('/sw.js')
+.then(reg => console.log('Service Worker مسجل', reg))
+.catch(err => console.log('فشل تسجيل Service Worker', err));
+});
+}
+</script>
+</body>
+</html>
